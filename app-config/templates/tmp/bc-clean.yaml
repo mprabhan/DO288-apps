@@ -1,0 +1,40 @@
+- apiVersion: build.openshift.io/v1
+  kind: BuildConfig
+  metadata:
+    annotations:
+    labels:
+      app: quotesapi
+    name: quotesapi
+  spec:
+    failedBuildsHistoryLimit: 5
+    nodeSelector: null
+    output:
+      to:
+        kind: ImageStreamTag
+        name: quotesapi:latest
+    postCommit: {}
+    resources: {}
+    runPolicy: Serial
+    source:
+      contextDir: quotes
+      git:
+        uri: https://github.com/mprabhan/DO288-apps
+      type: Git
+    strategy:
+      sourceStrategy:
+        from:
+          kind: ImageStreamTag
+          name: php:7.2
+          namespace: openshift
+      type: Source
+    successfulBuildsHistoryLimit: 5
+    triggers:
+    - github:
+        secret: a4cOdvFibW1h9GEJ9v6R
+      type: GitHub
+    - generic:
+        secret: A3GjvHFNM7S5-l-px7SU
+      type: Generic
+    - type: ConfigChange
+    - imageChange:
+      type: ImageChange

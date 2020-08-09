@@ -1,0 +1,72 @@
+apiVersion: v1
+items:
+- apiVersion: image.openshift.io/v1
+  kind: ImageStream
+  metadata:
+    annotations:
+      openshift.io/generated-by: OpenShiftNewApp
+    creationTimestamp: "2020-08-09T14:46:44Z"
+    generation: 1
+    labels:
+      app: quotesapi
+    name: quotesapi
+    namespace: mprabhan-quotes-dev
+    resourceVersion: "113373100"
+    selfLink: /apis/image.openshift.io/v1/namespaces/mprabhan-quotes-dev/imagestreams/quotesapi
+    uid: 252ef302-da4f-11ea-87eb-0a580a800041
+  spec:
+    lookupPolicy:
+      local: false
+  status:
+    dockerImageRepository: image-registry.openshift-image-registry.svc:5000/mprabhan-quotes-dev/quotesapi
+    publicDockerImageRepository: default-route-openshift-image-registry.apps.ocp-na2.prod.nextcle.com/mprabhan-quotes-dev/quotesapi
+    tags:
+    - items:
+      - created: "2020-08-09T14:48:09Z"
+        dockerImageReference: image-registry.openshift-image-registry.svc:5000/mprabhan-quotes-dev/quotesapi@sha256:59f278f5e927f6175356d058902a784361bc0f8d7b2740c0e96c2dded18c075a
+        generation: 1
+        image: sha256:59f278f5e927f6175356d058902a784361bc0f8d7b2740c0e96c2dded18c075a
+      tag: latest
+- apiVersion: image.openshift.io/v1
+  kind: ImageStream
+  metadata:
+    annotations:
+      openshift.io/image.dockerRepositoryCheck: "2020-08-09T14:46:04Z"
+    creationTimestamp: "2020-08-09T14:46:04Z"
+    generation: 2
+    name: quotesdb
+    namespace: mprabhan-quotes-dev
+    resourceVersion: "113372143"
+    selfLink: /apis/image.openshift.io/v1/namespaces/mprabhan-quotes-dev/imagestreams/quotesdb
+    uid: 0d051196-da4f-11ea-9257-0a580a82000a
+  spec:
+    lookupPolicy:
+      local: false
+    tags:
+    - annotations: null
+      from:
+        kind: DockerImage
+        name: image-registry.openshift-image-registry.svc:5000/openshift/mysql:5.7
+      generation: 2
+      importPolicy: {}
+      name: "5.7"
+      referencePolicy:
+        type: Source
+  status:
+    dockerImageRepository: image-registry.openshift-image-registry.svc:5000/mprabhan-quotes-dev/quotesdb
+    publicDockerImageRepository: default-route-openshift-image-registry.apps.ocp-na2.prod.nextcle.com/mprabhan-quotes-dev/quotesdb
+    tags:
+    - conditions:
+      - generation: 2
+        lastTransitionTime: "2020-08-09T14:46:04Z"
+        message: 'Internal error occurred: Get https://image-registry.openshift-image-registry.svc:5000/v2/:
+          x509: certificate signed by unknown authority'
+        reason: InternalError
+        status: "False"
+        type: ImportSuccess
+      items: null
+      tag: "5.7"
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""

@@ -1,0 +1,39 @@
+apiVersion: v1
+items:
+- apiVersion: route.openshift.io/v1
+  kind: Route
+  metadata:
+    annotations:
+      openshift.io/host.generated: "true"
+    creationTimestamp: "2020-08-09T14:48:31Z"
+    labels:
+      app: quotesapi
+    name: quotesapi
+    namespace: mprabhan-quotes-dev
+    resourceVersion: "113373301"
+    selfLink: /apis/route.openshift.io/v1/namespaces/mprabhan-quotes-dev/routes/quotesapi
+    uid: 64cd22c8-da4f-11ea-9257-0a580a82000a
+  spec:
+    host: quotesapi-mprabhan-quotes-dev.apps.ocp-na2.prod.nextcle.com
+    port:
+      targetPort: 8080-tcp
+    subdomain: ""
+    to:
+      kind: Service
+      name: quotesapi
+      weight: 100
+    wildcardPolicy: None
+  status:
+    ingress:
+    - conditions:
+      - lastTransitionTime: "2020-08-09T14:48:31Z"
+        status: "True"
+        type: Admitted
+      host: quotesapi-mprabhan-quotes-dev.apps.ocp-na2.prod.nextcle.com
+      routerCanonicalHostname: apps.ocp-na2.prod.nextcle.com
+      routerName: default
+      wildcardPolicy: None
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""
